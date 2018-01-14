@@ -24,11 +24,9 @@ public class EnemyFactory : MonoBehaviour {
         {
             case EnemyTypes.Slow:
                 return new SlowEnemy();
-                break;
 
             case EnemyTypes.Fast:
                 return new FastEnemy();
-                break;
 
             default:
                 return null;

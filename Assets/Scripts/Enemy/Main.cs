@@ -9,7 +9,6 @@ public class Main : MonoBehaviour {
     private void Start()
     {
         enemyFactory = new EnemyFactory();
-
         enemyFactory.AddNewEnemy(EnemyTypes.Fast);
         enemyFactory.AddNewEnemy(EnemyTypes.Slow);
 

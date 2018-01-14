@@ -4,13 +4,13 @@ using System.Collections;
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField]
-    private int jumpPower = 5;
+    private int jumpPower = 10;
 
-    private Rigidbody rigidbody;
+    private Rigidbody rigid;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -23,6 +23,6 @@ public class PlayerJump : MonoBehaviour
         if (!InputManager.Key_Space)
             return;
         // add force so the player will jump
-        rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+        rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
     }
 }

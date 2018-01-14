@@ -13,7 +13,10 @@ public class CameraFollowTarget : MonoBehaviour
     private float vertical;
 
     [SerializeField]
-    private float max_y, min_y;
+    private float max_y;
+
+    [SerializeField]
+    private float min_y;
 
     [SerializeField]
     private float rotationSpeed;
