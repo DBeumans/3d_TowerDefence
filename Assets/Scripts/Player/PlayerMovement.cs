@@ -9,8 +9,11 @@ public class PlayerMovement : MonoBehaviour
     private float movementSpeed;
 
     private float currentSpeed;
-
-    private Rigidbody rigid;
+    public float CurrentSpeed
+    {
+        get { return currentSpeed; }
+        set { currentSpeed = value; }
+    }
 
     private Vector3 horizontalMovement;
     private Vector3 verticalMovement;
@@ -34,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        rigid = GetComponent<Rigidbody>();
-
         currentSpeed = movementSpeed;    
     }
 
@@ -48,17 +49,12 @@ public class PlayerMovement : MonoBehaviour
         verticalMovement = v_movement.normalized;
     }
 
-    private void FixedUpdate()
+    public void Move(Rigidbody rb)
     {
-        calculateMovement();
+        calculateMovement(rb);
     }
 
-    public void Move(Vector3 dir)
-    {
-        direction = dir;
-    }
-
-    private void calculateMovement()
+    private void calculateMovement(Rigidbody rigid)
     {
         direction = (horizontalMovement + verticalMovement) * movementSpeed;
         rigid.MovePosition(rigid.position + direction * Time.fixedDeltaTime);
